@@ -78,3 +78,10 @@ Using different key names when saving/loading
 Expecting CSV files to auto-load
 
 Clearing localStorage unintentionally
+
+
+.reduce p {
+    max-width: 50%;
+    text-align: center;
+    margin: 0 auto;
+} add margin 0 auto to ensure items center properly
