@@ -93,3 +93,118 @@ How to add a line between text
 <hr>
 
 <p>Second section of text</p> 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #004648;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* Menu (desktop) */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide menu by default */
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #004648;
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+    }
+
+    .menu li {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    /* Toggle menu open */
+    #menu-toggle:checked ~ .menu {
+        max-height: 300px;
+    }
+}
+
+
+<nav class="navbar">
+    <div class="logo">MySite</div>
+
+    <!-- Checkbox toggle -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Hamburger icon -->
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <!-- Menu -->
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
