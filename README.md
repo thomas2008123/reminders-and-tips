@@ -85,3 +85,11 @@ Clearing localStorage unintentionally
     text-align: center;
     margin: 0 auto;
 } add margin 0 auto to ensure items center properly
+
+How to add a line between text
+
+<p>First section of text</p>
+
+<hr>
+
+<p>Second section of text</p> 
