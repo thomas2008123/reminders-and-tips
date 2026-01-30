@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carbon Footprint Calculator</title>
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Carbon Footprint Calculator</h1>
+
+    <label>Monthly Electricity Use (kWh)</label>
+    <input type="number" id="electricity">
+
+    <label>Car Travel per Year (miles)</label>
+    <input type="number" id="car">
+
+    <label>Flights per Year</label>
+    <input type="number" id="flights">
+
+    <button onclick="calculateFootprint()">Calculate</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateFootprint() {
+    const electricity = Number(document.getElementById("electricity").value);
+    const car = Number(document.getElementById("car").value);
+    const flights = Number(document.getElementById("flights").value);
+
+    const electricityCO2 = electricity * 12 * 0.233;
+    const carCO2 = car * 0.21;
+    const flightCO2 = flights * 250;
+
+    const total = electricityCO2 + carCO2 + flightCO2;
+
+    document.getElementById("result").innerText =
+        "Estimated yearly footprint: " + total.toFixed(0) + " kg CO₂";
+}
+</script>
+
+</body>
+</html>
