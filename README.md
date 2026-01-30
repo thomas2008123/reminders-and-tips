@@ -208,3 +208,109 @@ body {
         <li><a href="#">Contact</a></li>
     </ul>
 </nav>
+
+
+writing forms 
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8f6;
+    padding: 40px;
+}
+
+.container {
+    max-width: 500px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carbon Footprint Calculator</title>
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Carbon Footprint Calculator</h1>
+
+    <label>Monthly Electricity Use (kWh)</label>
+    <input type="number" id="electricity">
+
+    <label>Car Travel per Year (miles)</label>
+    <input type="number" id="car">
+
+    <label>Flights per Year</label>
+    <input type="number" id="flights">
+
+    <button onclick="calculateFootprint()">Calculate</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateFootprint() {
+    const electricity = Number(document.getElementById("electricity").value);
+    const car = Number(document.getElementById("car").value);
+    const flights = Number(document.getElementById("flights").value);
+
+    const electricityCO2 = electricity * 12 * 0.233;
+    const carCO2 = car * 0.21;
+    const flightCO2 = flights * 250;
+
+    const total = electricityCO2 + carCO2 + flightCO2;
+
+    document.getElementById("result").innerText =
+        "Estimated yearly footprint: " + total.toFixed(0) + " kg CO₂";
+}
+</script>
+
+</body>
+</html>
