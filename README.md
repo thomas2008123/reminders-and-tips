@@ -278,3 +278,31 @@ Add this to your media query:
 
 Now it stacks cleanly on mobile.
 
+
+
+Added regex email system 
+
+html 
+<div class="form-Email">
+                <label for="Email">* Email</label>
+                <input type="email" name="Email" id="Email" required>
+                <small id="emailError"></small>
+            </div>
+
+
+
+            
+js
+const emailInput = document.getElementById("Email");
+const emailError = document.getElementById("emailError");
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+emailInput.addEventListener("input", () => {
+    if (!emailRegex.test(emailInput.value)) {
+        emailError.textContent = "Please enter a valid email address";
+        emailError.style.color = "red";
+    } else {
+        emailError.textContent = "";
+    }
+});
