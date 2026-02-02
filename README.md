@@ -212,4 +212,50 @@ body {
 
 writing forms 
 
+ HOW TO DO TEXT NEXT TO IMAGE
+
+<section class="image-text">
+    <img src="img/consultations.png" alt="Sustainable energy illustration">
+
+    <div class="image-text-content">
+        <h2>Reduce Your Carbon Footprint</h2>
+        <p>
+            Small changes can make a big difference. Switching to renewable
+            energy, driving electric vehicles, and reducing flights all help
+            lower emissions.
+        </p>
+        <p>
+            Roslin Technologies helps you make informed, sustainable choices
+            that benefit both the planet and your wallet.
+        </p>
+    </div>
+</section> 
+
+
+.image-text {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+.image-text img {
+    width: 45%;
+    border-radius: 10px;
+}
+
+.image-text-content {
+    width: 55%;
+}
+
+.image-text-content h2 {
+    color: #004648;
+    margin-bottom: 10px;
+}
+
+.image-text-content p {
+    line-height: 1.6;
+}
 
