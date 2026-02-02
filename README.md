@@ -259,3 +259,22 @@ writing forms
     line-height: 1.6;
 }
 
+📱 Make it responsive (important)
+
+Add this to your media query:
+
+@media (max-width: 900px) {
+    .image-text {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-text img,
+    .image-text-content {
+        width: 100%;
+    }
+}
+
+
+Now it stacks cleanly on mobile.
+
