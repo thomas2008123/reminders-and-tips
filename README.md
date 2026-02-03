@@ -308,3 +308,333 @@ emailInput.addEventListener("input", () => {
 });
 
 
+Nice clean signup form 👍
+To make it “work with hashing”, you need JavaScript to hash the password before you store or send it anywhere.
+
+I’ll show you the correct approach, step by step, and explain why each part exists.
+
+⚠️ First: important reality check
+
+Pure HTML/JS hashing is OK for demos / coursework
+
+Real apps MUST hash on the server (Node, PHP, Python, etc.)
+
+Never store plain passwords
+
+Never rely on client-side hashing alone for production
+
+That said — here’s how to do it properly for a frontend-only setup.
+
+Step 1: Add a submit button + script link
+
+Update your HTML slightly:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <script defer src="signup.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Signup</h1>
+
+        <form id="signup-form">
+            <div>
+                <input type="text" id="firstname-input" placeholder="First name" required>
+            </div>
+
+            <div>
+                <input type="email" id="email-input" placeholder="Email" required>
+            </div>
+
+            <div>
+                <input type="password" id="password-input" placeholder="Password" required>
+            </div>
+
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+</body>
+</html>
+
+Step 2: Hash the password using Web Crypto API
+
+Create signup.js
+
+This uses SHA-256, which is the correct browser-native hashing method.
+
+const form = document.getElementById("signup-form");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const firstname = document.getElementById("firstname-input").value;
+    const email = document.getElementById("email-input").value;
+    const password = document.getElementById("password-input").value;
+
+    const hashedPassword = await hashPassword(password);
+
+    const user = {
+        firstname,
+        email,
+        password: hashedPassword
+    };
+
+    // Save to localStorage (demo only)
+    localStorage.setItem("user", JSON.stringify(user));
+
+    alert("Account created successfully!");
+    console.log(user);
+});
+
+Step 3: The hashing function (this is the key part)
+async function hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+
+    return hashHex;
+}
+
+What this does:
+
+Converts password → binary
+
+Hashes it using SHA-256
+
+Outputs a safe hexadecimal string
+
+Original password is never stored
+
+Step 4: What gets stored (example)
+
+Instead of:
+
+"password": "mypassword123"
+
+
+You get:
+
+"password": "ef92b778ba..."
+
+
+Even you can’t reverse it 🔐
+
+Step 5: How login would work later
+
+On login:
+
+User enters password
+
+Hash entered password
+
+Compare hash with stored hash
+
+If equal → success
+
+if (hashedInputPassword === storedUser.password) {
+    // login success
+}
+
+🔒 Important security notes (exam gold)
+
+Hashing ≠ encryption (cannot be reversed)
+
+Passwords should never be stored in plain text
+
+Production systems use:
+
+bcrypt
+
+argon2
+
+scrypt
+
+These require a backend
+
+Perfect — let’s bolt a login system straight onto what you already have 👍
+This will:
+
+Use the same hashing
+
+Support login validation
+
+Redirect to a home page on success
+
+Stay copy-paste friendly
+
+I’ll assume you’re using localStorage (frontend-only / coursework style).
+
+1️⃣ Update SIGNUP to support multiple users (important)
+🔁 signup.js (UPDATED)
+const form = document.getElementById("signup-form");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const firstname = document.getElementById("firstname-input").value;
+    const email = document.getElementById("email-input").value;
+    const password = document.getElementById("password-input").value;
+
+    const hashedPassword = await hashPassword(password);
+
+    const newUser = {
+        firstname,
+        email,
+        password: hashedPassword
+    };
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // prevent duplicate accounts
+    if (users.some(user => user.email === email)) {
+        alert("Account already exists");
+        return;
+    }
+
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Signup successful!");
+    window.location.href = "login.html";
+});
+
+async function hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+
+    return Array.from(new Uint8Array(hashBuffer))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}
+
+2️⃣ Create login.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script defer src="login.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Login</h1>
+
+        <form id="login-form">
+            <div>
+                <input type="email" id="login-email" placeholder="Email" required>
+            </div>
+
+            <div>
+                <input type="password" id="login-password" placeholder="Password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+
+3️⃣ Create login.js
+const form = document.getElementById("login-form");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const hashedPassword = await hashPassword(password);
+
+    const user = users.find(
+        u => u.email === email && u.password === hashedPassword
+    );
+
+    if (!user) {
+        alert("Invalid email or password");
+        return;
+    }
+
+    // save logged-in user session
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+    alert("Login successful!");
+    window.location.href = "home.html";
+});
+
+async function hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+
+    return Array.from(new Uint8Array(hashBuffer))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}
+
+4️⃣ Create a protected home.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script defer src="home.js"></script>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p id="user-name"></p>
+
+    <button id="logout">Logout</button>
+</body>
+</html>
+
+5️⃣ home.js (session check)
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (!user) {
+    window.location.href = "login.html";
+}
+
+document.getElementById("user-name").textContent =
+    `Hello, ${user.firstname}!`;
+
+document.getElementById("logout").addEventListener("click", () => {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+});
+
+✅ What you now have (exam-ready)
+
+✔ Password hashing
+✔ Signup & login
+✔ Duplicate account prevention
+✔ Session handling
+✔ Protected page
+✔ Clean separation of files
+
+🔒 Key line to mention for marks
+
+“Passwords are hashed using SHA-256 before being stored. During login, the entered password is hashed and compared to the stored hash.”
+
+If you want next:
+
+🔐 Password strength checker
+
+🧂 Salted hashing explanation
+
+🧠 Teacher-proof security write-up
+
+🌍 Backend version (Node / PHP)
+
+Just say the word 😄
