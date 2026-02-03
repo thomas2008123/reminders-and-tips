@@ -653,3 +653,31 @@ If you want next:
 🌍 Backend version (Node / PHP)
 
 Just say the word 😄
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutLink = document.getElementById("logout-link");
+
+    if (logoutLink) {
+        logoutLink.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            // Ask the user to confirm logout
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            
+            if (confirmLogout) {
+                // User clicked OK, proceed with logout
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "login.html";
+            } else {
+                // User clicked Cancel, do nothing
+                return;
+            }
+        });
+    }
+});
+
+<!--Sign out-->
+            <a href="#" id="logout-link">Sign out</a>
