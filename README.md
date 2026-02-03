@@ -5,7 +5,11 @@ center
 
    display: block;
     margin: auto; 
-    
+
+set width
+
+   max width:
+
 
 
 
