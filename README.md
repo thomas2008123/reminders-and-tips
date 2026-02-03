@@ -1,4 +1,15 @@
 # reminders-and-tips
+
+
+center
+
+   display: block;
+    margin: auto; 
+    
+
+
+
+
 /*
 TABLE NOT SHOWING DATA? CHECK THESE FIRST:
 
