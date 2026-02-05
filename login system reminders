@@ -1,36 +1,63 @@
-📂 Folder Reminder
-/js
-   signup.js
-   login.js
-   home.js
+🔐 Frontend Authentication System – Exam Build Guide
+📌 Purpose
 
+Memory-based reference for building a frontend authentication system during exams.
 
-Each page = separate JS file.
+Contains:
 
-🧾 SIGNUP SYSTEM
-🧠 Logic Order
+Small HTML + JavaScript reminder snippets
+
+Key logic structures
+
+Hard-part prompts (hashing, sessions, validation)
+
+⚠️ Not full solutions.
+
+📂 Suggested Structure
+/project
+   /js
+      signup.js
+      login.js
+      home.js
+   signup.html
+   login.html
+   home.html
+   styles.css
+
+🧾 SIGNUP PAGE
+🧱 HTML Structure Reminder
+<form id="signup-form">
+
+   <input type="text" id="firstname-input" required>
+
+   <input type="email" id="email-input" required>
+
+   <input type="password" id="password-input" required>
+
+   <button type="submit">Create Account</button>
+
+</form>
+
+Script Placement
+<script defer src="js/signup.js"></script>
+
+🧠 Signup Logic Order
 submit event
 prevent default
-get inputs
+get values
 hash password
 create object
 load users
 check duplicates
-push user
 save users
 redirect
 
-🔎 Get Form Values
-const firstname = document.getElementById("firstname-input").value;
-
-const email = document.getElementById("email-input").value;
-
-🔒 Password Hashing (Hard Part)
+🔒 Password Hashing Snippets
 Encode Password
 const encoder = new TextEncoder();
 const data = encoder.encode(password);
 
-Generate Hash
+Create SHA-256 Hash
 await crypto.subtle.digest("SHA-256", data);
 
 Convert Buffer → Hex
@@ -41,20 +68,12 @@ Array.from(new Uint8Array(hashBuffer))
 .join("")
 
 
-⚠️ Remember:
+Reminder:
 
-hashing function must be async
+hash function must be async
+use await when calling
 
-use await when calling it
-
-🧱 Create User Object
-const newUser = {
-   firstname,
-   email,
-   password: hashedPassword
-};
-
-📦 Load Stored Users
+📦 Load Users
 JSON.parse(localStorage.getItem("users")) || [];
 
 🚫 Prevent Duplicate Accounts
@@ -66,16 +85,28 @@ localStorage.setItem(
    JSON.stringify(users)
 );
 
-🔑 LOGIN SYSTEM
-🧠 Logic Order
-submit event
+🔑 LOGIN PAGE
+🧱 HTML Reminder
+<form id="login-form">
+
+   <input type="email" id="login-email" required>
+
+   <input type="password" id="login-password" required>
+
+   <button type="submit">Login</button>
+
+</form>
+
+Script Link
+<script defer src="js/login.js"></script>
+
+🧠 Login Flow
 prevent default
-get values
-hash entered password
+get inputs
+hash password
 load users
 find matching user
-if invalid alert
-if valid save session
+store session
 redirect
 
 🔍 Find Matching User
@@ -83,20 +114,22 @@ users.find(
    u => u.email === email && u.password === hashedPassword
 );
 
-📌 Save Login Session
+📌 Save Session
 localStorage.setItem(
    "loggedInUser",
    JSON.stringify(user)
 );
 
-❌ Invalid Login Reminder
-if (!user) {
-   alert("Invalid login");
-   return;
-}
+🏠 HOME PAGE
+🧱 HTML Reminder
+<h2 id="welcome-user"></h2>
 
-🏠 PROTECTED HOME PAGE
-🔐 Session Check (Runs First)
+<a href="#" id="logout-link">Logout</a>
+
+Script Link
+<script defer src="js/home.js"></script>
+
+🔐 Session Protection
 const user = JSON.parse(
    localStorage.getItem("loggedInUser")
 );
@@ -105,36 +138,66 @@ if (!user) {
    window.location.href = "login.html";
 }
 
-👋 Dynamic Welcome Message
+👋 Welcome Message
 welcome.textContent = `Welcome ${user.firstname}`;
 
-⏱ DOM Ready Reminder
-document.addEventListener("DOMContentLoaded", () => {
-
-🚪 LOGOUT WITH CONFIRMATION
-HTML Reminder
-<a id="logout-link">Logout</a>
-
+🚪 LOGOUT CONFIRMATION
 Event Listener Pattern
 logoutLink.addEventListener("click", (e) => {
    e.preventDefault();
 });
 
 Confirm Dialog
-const confirmLogout = confirm("Are you sure?");
+const confirmLogout = confirm("Log out?");
 
-Remove Session
+Clear Session
 localStorage.removeItem("loggedInUser");
 
 Redirect
 window.location.href = "login.html";
 
-📦 LOCAL STORAGE MICRO SNIPPETS
-Save Data
+📦 LOCAL STORAGE QUICK SNIPPETS
+Save
 localStorage.setItem("key", JSON.stringify(data));
 
-Load Data
+Load
 JSON.parse(localStorage.getItem("key"));
 
-Delete Data
+Delete
 localStorage.removeItem("key");
+
+⚠️ COMMON EXAM MISTAKES
+
+forgetting preventDefault()
+
+missing await in hashing
+
+wrong HTML IDs
+
+forgetting JSON.parse()
+
+mixing inline JS with external scripts
+
+not protecting home page
+
+storing plain passwords
+
+✅ FAST BUILD ORDER
+
+Create signup form
+
+Add hashing function
+
+Store users
+
+Create login form
+
+Validate credentials
+
+Save session
+
+Protect home page
+
+Display welcome message
+
+Add logout confirm
