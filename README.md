@@ -681,3 +681,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!--Sign out-->
             <a href="#" id="logout-link">Sign out</a>
+css main body 
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
