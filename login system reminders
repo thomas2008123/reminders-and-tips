@@ -1,0 +1,140 @@
+📂 Folder Reminder
+/js
+   signup.js
+   login.js
+   home.js
+
+
+Each page = separate JS file.
+
+🧾 SIGNUP SYSTEM
+🧠 Logic Order
+submit event
+prevent default
+get inputs
+hash password
+create object
+load users
+check duplicates
+push user
+save users
+redirect
+
+🔎 Get Form Values
+const firstname = document.getElementById("firstname-input").value;
+
+const email = document.getElementById("email-input").value;
+
+🔒 Password Hashing (Hard Part)
+Encode Password
+const encoder = new TextEncoder();
+const data = encoder.encode(password);
+
+Generate Hash
+await crypto.subtle.digest("SHA-256", data);
+
+Convert Buffer → Hex
+Array.from(new Uint8Array(hashBuffer))
+
+.map(b => b.toString(16).padStart(2,"0"))
+
+.join("")
+
+
+⚠️ Remember:
+
+hashing function must be async
+
+use await when calling it
+
+🧱 Create User Object
+const newUser = {
+   firstname,
+   email,
+   password: hashedPassword
+};
+
+📦 Load Stored Users
+JSON.parse(localStorage.getItem("users")) || [];
+
+🚫 Prevent Duplicate Accounts
+users.some(user => user.email === email)
+
+💾 Save Users
+localStorage.setItem(
+   "users",
+   JSON.stringify(users)
+);
+
+🔑 LOGIN SYSTEM
+🧠 Logic Order
+submit event
+prevent default
+get values
+hash entered password
+load users
+find matching user
+if invalid alert
+if valid save session
+redirect
+
+🔍 Find Matching User
+users.find(
+   u => u.email === email && u.password === hashedPassword
+);
+
+📌 Save Login Session
+localStorage.setItem(
+   "loggedInUser",
+   JSON.stringify(user)
+);
+
+❌ Invalid Login Reminder
+if (!user) {
+   alert("Invalid login");
+   return;
+}
+
+🏠 PROTECTED HOME PAGE
+🔐 Session Check (Runs First)
+const user = JSON.parse(
+   localStorage.getItem("loggedInUser")
+);
+
+if (!user) {
+   window.location.href = "login.html";
+}
+
+👋 Dynamic Welcome Message
+welcome.textContent = `Welcome ${user.firstname}`;
+
+⏱ DOM Ready Reminder
+document.addEventListener("DOMContentLoaded", () => {
+
+🚪 LOGOUT WITH CONFIRMATION
+HTML Reminder
+<a id="logout-link">Logout</a>
+
+Event Listener Pattern
+logoutLink.addEventListener("click", (e) => {
+   e.preventDefault();
+});
+
+Confirm Dialog
+const confirmLogout = confirm("Are you sure?");
+
+Remove Session
+localStorage.removeItem("loggedInUser");
+
+Redirect
+window.location.href = "login.html";
+
+📦 LOCAL STORAGE MICRO SNIPPETS
+Save Data
+localStorage.setItem("key", JSON.stringify(data));
+
+Load Data
+JSON.parse(localStorage.getItem("key"));
+
+Delete Data
+localStorage.removeItem("key");
