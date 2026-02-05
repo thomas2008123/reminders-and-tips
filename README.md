@@ -10,8 +10,41 @@ set width
 
    max width:
 
+body 
 
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; }
 
+Add nav links as a class around the links
+<ul class="nav-links">
+</ul>
+
+footer
+
+.footer {
+    background-color: #111;
+    color: #f4f6f8;
+    padding: 25px 40px;
+    margin-top: 40px;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    text-decoration: none;
+    color: #f4f6f8;
+
+}
 
 
 /*
