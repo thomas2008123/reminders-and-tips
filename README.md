@@ -17,7 +17,11 @@ body {
     background: #f4f6f8;
     min-height: 100vh;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column; 
+    min-height: 100vh; /* Ensures footer sticks to bottom */
+    margin: 0;
+    }
+    
 
 Add nav links as a class around the links
 <ul class="nav-links">
@@ -26,11 +30,10 @@ Add nav links as a class around the links
 footer
 
 .footer {
-    background-color: #111;
+    background-color: #FF2A40;
     color: #f4f6f8;
     padding: 25px 40px;
-    margin-top: 40px;
-    margin-top: auto;
+    margin-top: auto; /* pushes footer to bottom */
 }
 
 .footer-container {
@@ -40,10 +43,10 @@ footer
     flex-wrap: wrap;
 }
 
-.footer-links {
+.footer-links a {
     text-decoration: none;
     color: #f4f6f8;
-
+    margin-right: 15px; 
 }
 
 
