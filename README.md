@@ -1,6 +1,13 @@
 # reminders-and-tips
 
 
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+
 center
 
    display: block;
