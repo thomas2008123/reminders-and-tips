@@ -6,6 +6,8 @@ button:hover {
     transform: scale(1.05);
 }
 
+transition: all .4s ease;
+
 position fixed 
 bottom 0
 
