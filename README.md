@@ -6,7 +6,8 @@ button:hover {
     transform: scale(1.05);
 }
 
-
+position fixed 
+bottom 0
 
 center
 
