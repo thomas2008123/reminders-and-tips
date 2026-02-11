@@ -1,6 +1,14 @@
 # reminders-and-tips
 
+nav
 
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+
+
+    justify content: flex 
 
 button:hover {
     transform: scale(1.05);
