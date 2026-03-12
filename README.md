@@ -1,5 +1,242 @@
 # reminders-and-tips
 
+Building the Webpage – Development Explanation
+1. Creating the Base HTML Structure
+
+The first step was creating the basic HTML document structure. This ensures the browser correctly interprets the page and allows external files such as CSS to be linked.
+
+Important elements included:
+
+<!DOCTYPE html> to define the document type
+
+<meta charset> to support different characters
+
+<meta name="viewport"> to ensure the page is responsive
+
+<link rel="stylesheet"> to connect the CSS stylesheet
+
+Example:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenfield Local Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+2. Structuring the Page Layout
+
+The body of the webpage was organised using semantic HTML elements such as:
+
+header
+
+main
+
+section
+
+footer
+
+These improve accessibility and search engine optimisation.
+
+Example:
+
+<body>
+
+<header class="navbar">
+</header>
+
+<main>
+<section class="section">
+</section>
+</main>
+
+<footer class="footer">
+</footer>
+
+</body>
+3. Creating the Navigation Bar
+
+The navigation bar was created using a <header> element with links inside a <nav> element. This clearly defines the main navigation for screen readers.
+
+Example:
+
+<header class="navbar">
+
+<div class="logo">
+<img src="images/logo.png" alt="Website logo">
+</div>
+
+<nav aria-label="Main Navigation">
+<a href="#">Home</a>
+<a href="#">Our Producers</a>
+<a href="#">Join Us</a>
+<a href="#">Orders</a>
+</nav>
+
+</header>
+
+To position the elements across the top of the page, Flexbox was used.
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#faf1e1;
+}
+
+Flexbox allows items to spread across the horizontal space and stay aligned vertically.
+
+4. Creating a Promotional Banner
+
+A promotional message was added below the navigation bar using a <div> element.
+
+This provides a clear call-to-action for users.
+
+Example:
+
+<div class="promo">
+Save 20% On All Orders If You Join Loyalty Club Today
+</div>
+
+The banner was styled using CSS:
+
+.promo{
+background:#8a622e;
+color:white;
+text-align:center;
+padding:8px;
+font-weight:600;
+}
+5. Creating Page Sections
+
+Content was grouped into sections using the <section> element. This helps organise the page into logical areas.
+
+Example:
+
+<section class="section">
+
+<h2>Section Title</h2>
+
+<div class="grid">
+<div class="card"></div>
+<div class="card"></div>
+</div>
+
+</section>
+
+The sections were centred and spaced using CSS.
+
+.section{
+padding:60px 40px;
+max-width:1700px;
+margin:auto;
+text-align:center;
+}
+6. Using CSS Grid for Layout
+
+Inside each section, CSS Grid was used to create a two-column layout.
+
+Example:
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:20px;
+}
+
+grid-template-columns: 1fr 1fr; splits the layout into two equal columns, allowing content to sit side-by-side.
+
+7. Creating Card Components
+
+Reusable card containers were created to group content and images. This keeps the layout consistent.
+
+Example:
+
+<div class="card">
+<p>Example content inside the card.</p>
+</div>
+
+CSS styling:
+
+.card{
+background:#e9dcc6;
+padding:20px;
+border-radius:20px;
+}
+
+Rounded corners and padding make the content easier to read and visually separated.
+
+8. Adding Buttons
+
+Buttons were added to allow user interaction.
+
+Example:
+
+<button>Action Button</button>
+
+CSS styling:
+
+button{
+margin-top:15px;
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:#8a622e;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+The cursor:pointer property indicates that the element is clickable.
+
+9. Creating the Footer
+
+The footer contains additional navigation links and contact information.
+
+Example:
+
+<footer class="footer">
+
+<div>
+<h3>Greenfield Local Hub</h3>
+<p>Message us at:</p>
+<p>GreenfieldLocalHub@gmail.com</p>
+</div>
+
+<div>
+<a href="#">Join Our Loyalty Club</a>
+<a href="#">Our Producers</a>
+<a href="#">Your Orders</a>
+</div>
+
+</footer>
+
+Flexbox was used again to space the columns evenly.
+
+.footer{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:40px;
+}
+10. Making the Page Fill the Screen
+
+The body was set to use Flexbox so the footer remains at the bottom of the page.
+
+Example:
+
+body{
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
+
+main{ flex:1; } allows the main content to expand and push the footer down.
+
 nav
 
 display: flex;
