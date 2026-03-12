@@ -23,7 +23,7 @@ Example:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Greenfield Local Hub</title>
+<title></title>
 <link rel="stylesheet" href="style.css">
 </head>
 2. Structuring the Page Layout
@@ -98,7 +98,7 @@ This provides a clear call-to-action for users.
 Example:
 
 <div class="promo">
-Save 20% On All Orders If You Join Loyalty Club Today
+
 </div>
 
 The banner was styled using CSS:
