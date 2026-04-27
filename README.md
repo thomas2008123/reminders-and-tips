@@ -24,12 +24,100 @@ Did you find the sites layout to make sense and be coherent throughout?
 Was there anything you found to be frustrating?
 Which feature did you find easiest and hardest to use?
 
+parent 1
+Were there any points where you felt unsure of what you had to do?
+"at first i found it difficult to use as things on login page were not so well labelled, but i think that once i logged in it was easy to use"
+
+What changes could have made you have a better experience?
+"I think that the navbar could have better labels for the pages"
+
+Did you find the site’s layout to make sense and be coherent throughout?
+"The site is very well layed out and easy to follow"
+
+Was there anything you found to be frustrating?
+"Just that links could have been labeled slightly better"
+
+Which feature did you find easiest and hardest to use?
+"I found that the main parts of the site were well made and easy to understand, but the site could be better labeled"
+
+parent 2 
+
+Were there any points where you felt unsure of what you had to do?
+"At first I took a moment to understand the login page, but after that everything was clear and easy to use."
+
+What changes could have made you have a better experience?
+"not much needed changing. The colour scheme was nice, the font size was good, and everything was easy to read."
+
+Did you find the site’s layout to make sense and be coherent throughout?
+"Yes, the site is very well layed out and quite consistent"
+
+Was there anything you found to be frustrating?
+"No, I did not find anything frustrating i think everything worked smoothly"
+
+Which feature did you find easiest and hardest to use?
+"I found the main features very easy to use and understand there was nothing particularly hard to use."
+
+friend
+
+Were there any points where you felt unsure of what you had to do?
+"Not really honestly, it was pretty easy to use from login and i could tell where everything was meant to be"
+
+What changes could have made you have a better experience?
+"Would be a bit better with a more modern type of design with animations from page to page currently feels a little static ."
+
+Did you find the site’s layout to make sense and be coherent throughout?
+"thought that the layout all made sense and stayed coherent with other pages "
+
+Was there anything you found to be frustrating?
+"no was pretty simple to use"
+
+Which feature did you find easiest and hardest to use?
+"Thought that easiest feature was navigating through the site between pages but thought it was a bit hard to login at first"
+
 Technical:
 Were there any areas of code which you found to be unclear or insufficient?
 Can you talk about any bugs which you encountered within the code?
 Did you find any vulnerabilities within the code?
 If you had to optimise one piece of the code what would it be?
 Does the prototype follow good development practices?
+
+I messaged some technical users online to gain further feedback on the prototype. This helped me collect opinions from people with stronger development knowledge.
+
+technical user 1
+
+Were there any areas of code which you found to be unclear or insufficient?
+“The overall code was understandable, but some sections could be organised better and separated into smaller reusable functions.”
+
+Can you talk about any bugs which you encountered within the code?
+“I did not notice any major bugs, although there were a few minor styling inconsistencies on some pages.”
+
+Did you find any vulnerabilities within the code?
+“The main vulnerability would be relying on local storage for data. This is acceptable for a prototype, but a live system should use a secure back-end database.”
+
+If you had to optimise one piece of the code what would it be?
+“I would reduce repeated CSS and reorganise stylesheets so they are easier to maintain.”
+
+Does the prototype follow good development practices?
+“it follows good practices for a prototype and shows clear effort in planning and structure.”
+
+technical user 2 
+
+Technical User 2 – Online Software Engineer
+
+Were there any areas of code which you found to be unclear or insufficient?
+“The code was well commented and mostly easy to follow however some larger functions could be split into smaller modules.”
+
+Can you talk about any bugs which you encountered within the code?
+“I did not encounter any serious bugs, most features worked as expected during testing.”
+
+Did you find any vulnerabilities within the code?
+“Security could be improved further by using stronger password hashing and server-side authentication instead of relying on client-side storage.”
+
+If you had to optimise one piece of the code what would it be?
+“I would optimise the security of the project by moving user data to a secure back-end database.”
+
+Does the prototype follow good development practices?
+“This prototype presents good front-end development practices, clear commenting and a clear logical structure.”
 
 Responses I got:
 Response to feedback:
