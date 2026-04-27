@@ -1,5 +1,42 @@
 # reminders-and-tips
 
+
+
+Task 3A Data Collection 
+To begin with, I made 2 separate YouTube videos showcasing the technical and non-technical sides of the website.
+For the non-technical side I made a video showcasing the website itself rather than any of the code. This side helps to provide the user with a basic view of how the website functions from page to page and how the user experience would be. This allows for good data collection as it can reach a wide audience and it allows a firsthand view for the user as they are guided through the site. Given more time however, or a better working environment I would have dubbed the video over and emphasised certain parts as well as editing it down to where the user viewing it could get better explanations.
+Non-technical video : https://youtu.be/QAU_8Pj5maM
+For the technical side however, I made a video which instead showcased the JS code rather than the actual site as this allows for technical users to look at the code and give data on what could be improved with the code for the site to flow better as a whole. 
+Given more time on this video I would have done similar adjustments to the ones mentioned in the non-technical fixes, but I would have also explained more of the code such as the CSS and html as well as the structure of the code and the way I organised it in order to make changes to code easy and effortless.
+Technical video: https://www.youtube.com/watch?v=_rkhKpgwKiU
+by getting both sides of the user database, the website will be able to develop much faster, as well as be a better and safer environment which is kindred to the users’ needs being especially developed for them.
+Next I condensed the website down to a zip file and sent it to separate users so they could trial the site and see how it functions or see any way it could be improved, then along with this I would send a questionnaire the user can fill out so that I can collect data quickly and efficiently, to do this on a mass scale I decided to send to different departments in my college and to my friends so that I could have a wide user feedback with all different types of views.
+Non-technical questionnaire: https://youtu.be/QAU_8Pj5maM    
+technical questionnaire: https://www.youtube.com/watch?v=_rkhKpgwKiU
+Then outside of college I interviewed a range of different users with different experience in technology from my parents & friends to people I work with at placement.
+
+
+Interview questions:
+Non-technical:
+were there any points where you felt unsure of what you had to do?
+what changes could of made you have a better experience?
+Did you find the sites layout to make sense and be coherent throughout?
+Was there anything you found to be frustrating?
+Which feature did you find easiest and hardest to use?
+
+Technical:
+Were there any areas of code which you found to be unclear or insufficient?
+Can you talk about any bugs which you encountered within the code?
+Did you find any vulnerabilities within the code?
+If you had to optimise one piece of the code what would it be?
+Does the prototype follow good development practices?
+
+Responses I got:
+Response to feedback:
+Questionnaire:
+Interview: 
+
+
 Building the Webpage – Development Explanation
 1. Creating the Base HTML Structure
 
