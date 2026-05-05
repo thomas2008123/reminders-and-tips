@@ -1,6 +1,8 @@
 # reminders-and-tips
 
+<img width="585" height="1266" alt="image" src="https://github.com/user-attachments/assets/79c47360-8857-4c67-ae9b-fcc52ebbca3b" />
 
+<img width="585" height="1266" alt="image" src="https://github.com/user-attachments/assets/e1e2b781-cff4-4268-a395-272955310f41" />
 
 Task 3A Data Collection 
 To begin with, I made 2 separate YouTube videos showcasing the technical and non-technical sides of the website.
